@@ -7,11 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.7" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\APIBanco.Core\APIBanco.Core.csproj" />
     <ProjectReference Include="..\APIBanco.Domain\APIBanco.Domain.csproj" />
+    <ProjectReference Include="..\APIBanco.InfraEstrutura\APIBanco.InfraEstrutura.csproj" />
     <ProjectReference Include="..\APIBanco.Middlewares\APIBanco.Middlewares.csproj" />
   </ItemGroup>
 

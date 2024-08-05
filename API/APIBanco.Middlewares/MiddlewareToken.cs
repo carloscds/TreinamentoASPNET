@@ -26,13 +26,13 @@ namespace APIBanco.Middlewares
                 await _next(context);
                 return;
             }
-            string autorizacao = context.Request.Headers["Authorization"];
-            if (autorizacao == null)
-            {
-                context.Response.StatusCode = 401;
-                await context.Response.WriteAsync("Invalid Token");
-                return;
-            }
+            //string autorizacao = context.Request.Headers["Authorization"];
+            //if (autorizacao == null)
+            //{
+            //    context.Response.StatusCode = 401;
+            //    await context.Response.WriteAsync("Invalid Token");
+            //    return;
+            //}
             // validar o token
             await _next(context);
         }

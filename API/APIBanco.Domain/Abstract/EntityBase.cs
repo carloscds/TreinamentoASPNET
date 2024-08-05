@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace APIBanco.Domain.Abstract
 {
-    public abstract class EntityBase
+    public class EntityBase
     {
         public int Id { get; set; }
         public Guid Key { get; set; }

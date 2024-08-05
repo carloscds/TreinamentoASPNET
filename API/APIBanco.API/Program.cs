@@ -1,5 +1,10 @@
 
+using APIBanco.Core.Interfaces;
+using APIBanco.Core.Services;
+using APIBanco.InfraEstrutura.Models;
+using APIBanco.InfraEstrutura.Repository;
 using APIBanco.Middlewares;
+using Microsoft.EntityFrameworkCore;
 
 namespace APIBanco
 {
@@ -12,6 +17,11 @@ namespace APIBanco
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddScoped(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
+            builder.Services.AddDbContext<OABContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("Banco")));
+
+            builder.Services.AddScoped<IClienteService, ClienteService>();
 
             var app = builder.Build();
 

@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace APIBanco.InfraEstrutura.EF
+namespace APIBanco.Domain.DTO
 {
-    public class APIContext : DbContext
+    public class ModelErrors
     {
+        public string Mensagem { get; set; }
     }
 }
