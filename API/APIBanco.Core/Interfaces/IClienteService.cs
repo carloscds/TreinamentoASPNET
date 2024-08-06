@@ -13,6 +13,7 @@ namespace APIBanco.Core.Interfaces
         IList<ClienteResponseDTO> GetAll();
         ClienteResponseDTO GetById(int id);
         ClienteResponseDTO GetByKey(Guid key);
+        Cliente GetByKeyDomain(Guid key);
         Guid Add(ClienteRequestDTO cliente);
         bool Update(ClienteRequestDTO cliente);
         bool Delete(Guid key);

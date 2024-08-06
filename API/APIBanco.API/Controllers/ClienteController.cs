@@ -52,6 +52,17 @@ namespace APIBanco.Controllers
             return Ok(cliente);
         }
 
+        [HttpGet("domain/{key}")]
+        public IActionResult GetClienteDomainDB(Guid key)
+        {
+            var clienteDomain = _cliente.GetByKeyDomain(key);
+            if (clienteDomain == null)
+            {
+                return NotFound();
+            }
+            return Ok(clienteDomain.ToDTO());
+        }
+
         [HttpPut]
         public IActionResult Atualizar([FromBody] ClienteRequestDTO cliente)
         {

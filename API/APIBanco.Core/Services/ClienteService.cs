@@ -19,10 +19,10 @@ namespace APIBanco.Core.Services
         private readonly IList<ModelErrors> _errors;
 
         public IList<ModelErrors> GetErrors() => _errors;
-
         public ClienteService(IRepositoryBase<Cliente> cliente)
         {
             _cliente = cliente;
+            
             _errors = new List<ModelErrors>();
         }
 
@@ -93,6 +93,11 @@ namespace APIBanco.Core.Services
                 Email = cliente.Email,
                 Endereco = cliente.Endereco
             };
+        }
+
+        public Cliente GetByKeyDomain(Guid key)
+        {
+            return _cliente.GetByPredicate(w => w.Key == key);
         }
 
         public bool Update(ClienteRequestDTO cliente)
