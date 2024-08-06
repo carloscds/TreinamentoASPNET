@@ -1,12 +1,7 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using APIBanco.InfraEstrutura.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace APIBanco.InfraEstrutura.EFFactory
 {
@@ -14,9 +9,14 @@ namespace APIBanco.InfraEstrutura.EFFactory
     {
         public OABContext CreateDbContext(string[] args)
         {
-            var conexao = new SqlConnection("data source=(local); initial catalog=oab; user id=teste; password=teste;trusted_connection=true; encrypt=false;");
+            var diretorioPai = Directory.GetParent(Directory.GetCurrentDirectory()).FullName;
+            var diretorioJson = Path.Combine(diretorioPai, @"APIBanco.API");
+            var configuration = new ConfigurationBuilder()
+                .SetBasePath(diretorioJson)
+                .AddJsonFile("appsettings.Development.json")
+                .Build();
             var dbOptions = new DbContextOptionsBuilder<OABContext>()
-                                .UseSqlServer(conexao)
+                                .UseSqlServer(configuration.GetConnectionString("Banco"))
                                 .Options;
             var db = new OABContext(dbOptions);
             return db;

@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace APIBanco.InfraEstrutura.EF.Validation
 {
-    public class ClienteValidator : AbstractValidator<ClienteRequestDTO>
+    public class ClienteRequestDTOValidator : AbstractValidator<ClienteRequestDTO>
     {
-        public ClienteValidator()
+        public ClienteRequestDTOValidator()
         {
             RuleFor(x => x.Nome).NotEmpty().WithMessage("Nome é obrigatório");
             RuleFor(x => x.Email).NotEmpty().WithMessage("Email é obrigatório");

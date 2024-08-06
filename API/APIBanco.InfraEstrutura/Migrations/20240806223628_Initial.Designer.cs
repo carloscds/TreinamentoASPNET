@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace APIBanco.InfraEstrutura.Migrations
 {
     [DbContext(typeof(OABContext))]
-    [Migration("20240805113734_cliente_guid")]
-    partial class cliente_guid
+    [Migration("20240806223628_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -56,6 +56,9 @@ namespace APIBanco.InfraEstrutura.Migrations
                         .HasColumnType("varchar(50)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Key")
+                        .IsUnique();
 
                     b.ToTable("Cliente");
                 });

@@ -1,9 +1,12 @@
-﻿using APIBanco.Core.Interfaces;
+﻿using APIBanco.Core.Abstract;
+using APIBanco.Core.Interfaces;
 using APIBanco.Domain.DTO;
 using APIBanco.Domain.Entidade;
 using APIBanco.InfraEstrutura.EF.Validation;
+using APIBanco.InfraEstrutura.EF.Validators;
 using APIBanco.InfraEstrutura.Models;
 using APIBanco.InfraEstrutura.Repository;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -13,29 +16,19 @@ using System.Threading.Tasks;
 
 namespace APIBanco.Core.Services
 {
-    public class ClienteService : IClienteService
+    public class ClienteService : ServiceBase<Domain.DTO.ClienteRequestDTO>, IClienteService
     {
         private readonly IRepositoryBase<Cliente> _cliente;
-        private readonly IList<ModelErrors> _errors;
 
-        public IList<ModelErrors> GetErrors() => _errors;
         public ClienteService(IRepositoryBase<Cliente> cliente)
         {
             _cliente = cliente;
-            
-            _errors = new List<ModelErrors>();
         }
 
-        public Guid Add(ClienteRequestDTO cliente)
+        public Guid Add(Domain.DTO.ClienteRequestDTO cliente)
         {
-            var validator = new ClienteValidator();
-            var result = validator.Validate(cliente);
-            if(result.Errors.Count > 0)
-            {
-                foreach (var error in result.Errors)
-                {
-                    _errors.Add(new ModelErrors { Mensagem = error.ErrorMessage });
-                }
+            if(!ValidateModel(cliente))
+            { 
                 return Guid.Empty;
             }
             var clienteAdd = new Cliente
@@ -100,7 +93,7 @@ namespace APIBanco.Core.Services
             return _cliente.GetByPredicate(w => w.Key == key);
         }
 
-        public bool Update(ClienteRequestDTO cliente)
+        public bool Update(Domain.DTO.ClienteRequestDTO cliente)
         {
             var clienteUpdate = _cliente.GetByPredicate(w => w.Key == cliente.Key);
             if (clienteUpdate == null)
