@@ -12,11 +12,9 @@ namespace APIBanco
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            
             builder.Services.AddCustomServices(builder.Configuration);
             builder.Services.AddCustomSwagger();
             builder.Services.AddSecurity(builder.Configuration);
-            builder.Services.AddScoped<IClienteService, ClienteService>();
 
             var app = builder.Build();
             app.UseCustomEndpoints();

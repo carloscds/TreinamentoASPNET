@@ -1,3 +1,4 @@
+using API.Services.Controllers;
 using APIBanco.Core.Interfaces;
 using APIBanco.Domain.Extensions;
 using APIBanco.Domain.Models;
@@ -9,7 +10,7 @@ namespace APIBanco.Controllers
     [Authorize]
     [ApiController]
     [Route("[controller]")]
-    public class ClienteController : ControllerBase
+    public class ClienteController : ControllerBaseAPI
     {
         private readonly ILogger<ClienteController> _logger;
         private IConfiguration _config;

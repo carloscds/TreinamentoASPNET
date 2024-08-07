@@ -42,6 +42,7 @@ namespace APIBanco.API.Services
             claims.Add(new Claim(JwtRegisteredClaimNames.Nbf, ToUnixEpochDate(DateTime.UtcNow).ToString()));
             claims.Add(new Claim(JwtRegisteredClaimNames.Iat, ToUnixEpochDate(DateTime.UtcNow).ToString(), ClaimValueTypes.Integer64));
             claims.Add(new Claim("role", "user"));
+            claims.Add(new Claim("usuario_id_interno", "123"));
             var identityClaims = new ClaimsIdentity();
             identityClaims.AddClaims(claims);
             return identityClaims;

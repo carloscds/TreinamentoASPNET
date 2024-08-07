@@ -31,6 +31,7 @@ namespace APIBanco.API.Controllers
             _logger = logger;
         }
 
+        // Nao deixar aberto - somente para fins ditaticos está aberto!
         [AllowAnonymous]
         [HttpPost("CriarUsuario")]
         public async Task<IActionResult> CriarUsuario([FromBody] UsuarioCreateDTO usuario)
@@ -85,6 +86,7 @@ namespace APIBanco.API.Controllers
             var result = await _signInManager.PasswordSignInAsync(user, login.Senha, false, true);
             if (result.Succeeded)
             {
+                // exemplo: atualizar data do último login
                 await _userManager.UpdateAsync(user);
                 return Ok(await _tokenService.GenerateJWT(user.Email));
             }
@@ -93,7 +95,6 @@ namespace APIBanco.API.Controllers
                 return BadRequest("Usuário/Senha inválidos");
             }
         }
-        
 
         [HttpPut("TrocarSenha")]
         public async Task<IActionResult> TrocarSenha([FromBody] UsuarioChangePasswordDTO changePassword)

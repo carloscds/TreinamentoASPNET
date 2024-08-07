@@ -8,7 +8,7 @@ namespace API.Services.Controllers
         {
             get
             {
-                return HttpContext.User.Claims.FirstOrDefault(w => w.Type.Contains("nameidentifier"))?.Value;
+                return HttpContext.User.Claims.FirstOrDefault(w => w.Type.Contains("sub"))?.Value;
             }
         } 
     }

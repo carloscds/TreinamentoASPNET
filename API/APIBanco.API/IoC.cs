@@ -36,7 +36,6 @@ namespace APIBanco.API
             app.AddScoped<IClienteService, ClienteService>();
             app.AddScoped<ITokenService, TokenService>();
             app.AddMemoryCache();
-
         }
 
         public static void AddSecurity(this IServiceCollection app, IConfiguration configuration)
@@ -45,13 +44,12 @@ namespace APIBanco.API
             {
                 o.Jws = Algorithm.Create(DigitalSignaturesAlgorithm.RsaSha256);
                 o.Jwe = Algorithm.Create(EncryptionAlgorithmKey.RsaOAEP).WithContentEncryption(EncryptionAlgorithmContent.Aes128CbcHmacSha256);
-
             })
             .UseJwtValidation()
             .PersistKeysToDatabaseStore<OABContext>();
 
             app.AddDefaultIdentity<Usuario>(options =>
-            {
+            { 
                 options.Password.RequireLowercase = false;
                 options.Password.RequireUppercase = false;
                 options.Password.RequiredLength = 8;
