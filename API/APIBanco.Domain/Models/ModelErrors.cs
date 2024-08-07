@@ -1,4 +1,4 @@
-﻿namespace APIBanco.Middlewares
+﻿namespace APIBanco.Domain.Models
 {
     public class ModelErrors
     {

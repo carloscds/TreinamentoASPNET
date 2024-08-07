@@ -1,22 +1,12 @@
 ﻿using APIBanco.Core.Abstract;
 using APIBanco.Core.Interfaces;
-using APIBanco.Domain.DTO;
 using APIBanco.Domain.Entidade;
-using APIBanco.InfraEstrutura.EF.Validation;
-using APIBanco.InfraEstrutura.EF.Validators;
-using APIBanco.InfraEstrutura.Models;
+using APIBanco.Domain.Models;
 using APIBanco.InfraEstrutura.Repository;
-using FluentValidation;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace APIBanco.Core.Services
 {
-    public class ClienteService : ServiceBase<Domain.DTO.ClienteRequestDTO>, IClienteService
+    public class ClienteService : ServiceBase<ClienteRequestDTO>, IClienteService
     {
         private readonly IRepositoryBase<Cliente> _cliente;
 
@@ -25,7 +15,7 @@ namespace APIBanco.Core.Services
             _cliente = cliente;
         }
 
-        public Guid Add(Domain.DTO.ClienteRequestDTO cliente)
+        public Guid Add(ClienteRequestDTO cliente)
         {
             if(!ValidateModel(cliente))
             { 
@@ -93,7 +83,7 @@ namespace APIBanco.Core.Services
             return _cliente.GetByPredicate(w => w.Key == key);
         }
 
-        public bool Update(Domain.DTO.ClienteRequestDTO cliente)
+        public bool Update(ClienteRequestDTO cliente)
         {
             var clienteUpdate = _cliente.GetByPredicate(w => w.Key == cliente.Key);
             if (clienteUpdate == null)

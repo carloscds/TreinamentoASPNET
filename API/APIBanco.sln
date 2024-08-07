@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35111.106
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIBanco.API", "APIBanco.API.csproj", "{3CCD43B9-72A0-42CC-86A0-0B59E85079CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIBanco.API", "APIBanco.API\APIBanco.API.csproj", "{3CCD43B9-72A0-42CC-86A0-0B59E85079CB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIBanco.Domain", "..\APIBanco.Domain\APIBanco.Domain.csproj", "{C808D9D1-9D89-496A-9433-0575292771ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIBanco.Domain", "APIBanco.Domain\APIBanco.Domain.csproj", "{C808D9D1-9D89-496A-9433-0575292771ED}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIBanco.Middlewares", "..\APIBanco.Middlewares\APIBanco.Middlewares.csproj", "{78F558BC-81F4-49A9-9391-04B22A078E94}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIBanco.Middlewares", "APIBanco.Middlewares\APIBanco.Middlewares.csproj", "{78F558BC-81F4-49A9-9391-04B22A078E94}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIBanco.InfraEstrutura", "..\APIBanco.InfraEstrutura\APIBanco.InfraEstrutura.csproj", "{E83807BD-5457-4154-B8B5-A3892FE24C85}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIBanco.InfraEstrutura", "APIBanco.InfraEstrutura\APIBanco.InfraEstrutura.csproj", "{E83807BD-5457-4154-B8B5-A3892FE24C85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIBanco.Core", "..\APIBanco.Core\APIBanco.Core.csproj", "{45B4EAFE-3240-4A08-8EB7-E52833CDA4A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIBanco.Core", "APIBanco.Core\APIBanco.Core.csproj", "{45B4EAFE-3240-4A08-8EB7-E52833CDA4A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIBanco.Services", "APIBanco.Services\APIBanco.Services.csproj", "{C69101FA-C7F4-43C5-B44B-6172776A8D7C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{45B4EAFE-3240-4A08-8EB7-E52833CDA4A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45B4EAFE-3240-4A08-8EB7-E52833CDA4A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45B4EAFE-3240-4A08-8EB7-E52833CDA4A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C69101FA-C7F4-43C5-B44B-6172776A8D7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C69101FA-C7F4-43C5-B44B-6172776A8D7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C69101FA-C7F4-43C5-B44B-6172776A8D7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C69101FA-C7F4-43C5-B44B-6172776A8D7C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

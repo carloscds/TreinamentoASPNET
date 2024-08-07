@@ -1,10 +1,8 @@
 
+using APIBanco.API;
 using APIBanco.Core.Interfaces;
 using APIBanco.Core.Services;
-using APIBanco.InfraEstrutura.Models;
-using APIBanco.InfraEstrutura.Repository;
 using APIBanco.Middlewares;
-using Microsoft.EntityFrameworkCore;
 
 namespace APIBanco
 {
@@ -14,30 +12,12 @@ namespace APIBanco
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddControllers();
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
-            builder.Services.AddScoped(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
-            builder.Services.AddDbContext<OABContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("Banco")));
-
-            builder.Services.AddScoped<IClienteService, ClienteService>();
+            builder.Services.AddCustomServices(builder.Configuration);
+            builder.Services.AddCustomSwagger();
+            builder.Services.AddSecurity(builder.Configuration);
 
             var app = builder.Build();
-
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
-
-            app.UseHttpsRedirection();
-
-            app.UseAuthorization();
-
-            app.MapControllers();
-            app.UseMiddleware<MiddlewareException>();
-            app.UseMiddleware<MiddlewareToken>();
+            app.UseCustomEndpoints();
             app.Run();
         }
     }

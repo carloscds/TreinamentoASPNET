@@ -7,6 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+	<PackageReference Include="AspNetCore.Scalar" Version="1.1.2" />
+	<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.4" />
+	<PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="8.0.4" />
+	<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.4" />
+	<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.4" />
+	<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+	<PackageReference Include="NetDevPack.Security.Jwt.AspNetCore" Version="8.1.5" />
+	<PackageReference Include="NetDevPack.Security.Jwt.Store.EntityFrameworkCore" Version="8.1.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.7" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
@@ -16,6 +24,7 @@
     <ProjectReference Include="..\APIBanco.Domain\APIBanco.Domain.csproj" />
     <ProjectReference Include="..\APIBanco.InfraEstrutura\APIBanco.InfraEstrutura.csproj" />
     <ProjectReference Include="..\APIBanco.Middlewares\APIBanco.Middlewares.csproj" />
+    <ProjectReference Include="..\APIBanco.Services\APIBanco.Services.csproj" />
   </ItemGroup>
 
 </Project>

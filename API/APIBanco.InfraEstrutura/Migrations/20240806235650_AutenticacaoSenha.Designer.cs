@@ -4,6 +4,7 @@ using APIBanco.InfraEstrutura.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace APIBanco.InfraEstrutura.Migrations
 {
     [DbContext(typeof(OABContext))]
-    partial class OABContextModelSnapshot : ModelSnapshot
+    [Migration("20240806235650_AutenticacaoSenha")]
+    partial class AutenticacaoSenha
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Net;
 using Microsoft.AspNetCore.Http;
 
 namespace APIBanco.Middlewares
@@ -45,7 +39,7 @@ namespace APIBanco.Middlewares
         }
         private static void MontaMensagemErro(List<ModelErrors> _modelErros, Exception ex)
         {
-            _modelErros.Add(new ModelErrors { Field = "Erro", Message = ex.Message });
+            _modelErros.Add(new ModelErrors { Mensagem = ex.Message });
             if (ex.InnerException != null)
             {
                 MontaMensagemErro(_modelErros, ex.InnerException);

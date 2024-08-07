@@ -1,12 +1,11 @@
-using APIBanco.Core.Interfaces;
 using APIBanco.Domain.Entidade;
-using APIBanco.InfraEstrutura.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Runtime.InteropServices;
 
 namespace APIBanco.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class TesteController : ControllerBase
