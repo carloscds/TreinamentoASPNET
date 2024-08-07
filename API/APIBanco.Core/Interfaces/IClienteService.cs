@@ -1,10 +1,5 @@
-﻿using APIBanco.Domain.DTO;
-using APIBanco.Domain.Entidade;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using APIBanco.Domain.Entidade;
+using APIBanco.Domain.Models;
 
 namespace APIBanco.Core.Interfaces
 {

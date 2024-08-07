@@ -1,4 +1,4 @@
-﻿using APIBanco.Domain.DTO;
+﻿using APIBanco.Domain.Models;
 using APIBanco.InfraEstrutura.EF.Validators;
 using FluentValidation;
 

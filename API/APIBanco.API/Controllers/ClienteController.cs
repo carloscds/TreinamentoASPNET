@@ -1,13 +1,12 @@
 using APIBanco.Core.Interfaces;
-using APIBanco.Domain.DTO;
-using APIBanco.Domain.Entidade;
-using APIBanco.InfraEstrutura.Models;
+using APIBanco.Domain.Extensions;
+using APIBanco.Domain.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Runtime.InteropServices;
 
 namespace APIBanco.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class ClienteController : ControllerBase

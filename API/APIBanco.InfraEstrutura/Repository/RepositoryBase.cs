@@ -1,14 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore.Query;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using APIBanco.InfraEstrutura.Models;
-using APIBanco.Domain.DTO;
 
 namespace APIBanco.InfraEstrutura.Repository
 {
