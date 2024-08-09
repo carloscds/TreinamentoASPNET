@@ -4,6 +4,8 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>5a3d2ed8-6d0f-4f44-91d8-95997acd8c72</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,6 +15,7 @@
 	<PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.4" />
 	<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.4" />
 	<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+	<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.20.1" />
 	<PackageReference Include="NetDevPack.Security.Jwt.AspNetCore" Version="8.1.5" />
 	<PackageReference Include="NetDevPack.Security.Jwt.Store.EntityFrameworkCore" Version="8.1.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.7" />
